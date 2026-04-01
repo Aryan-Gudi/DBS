@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: p2p_mysql
+    restart: always
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: p2p_electricity
+
+    ports:
+      - "3306:3306"
+
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
